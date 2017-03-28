@@ -16,22 +16,88 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     [self createButtons];
-    
 }
 
 -(void) createButtons
 {
-    _board = [[NSArray alloc] initWithObjects:
-              _b11,_b12,_b13,_b14,
-              _b21,_b22,_b23,_b24,
-              _b31,_b32,_b33,_b34,
-              _b41,_b42,_b43,_b44,
-              _b51,_b52,_b53,_b54,
-              _b61,_b62,_b63,_b64,
-              _b71,_b72,_b73,_b74,
-              _b81,_b82,_b83,_b84,
-              nil];
-    _boardWrapper = [[NSArray alloc] initWithObjects:_bw11,_bw12,_bw13,_bw14,
+    _bw11 = [[buttonWrapper alloc] init];
+    _bw11 = [[buttonWrapper alloc] init];
+    _bw12 = [[buttonWrapper alloc] init];
+    _bw13 = [[buttonWrapper alloc] init];
+    _bw14 = [[buttonWrapper alloc] init];
+    
+    _bw21 = [[buttonWrapper alloc] init];
+    _bw22 = [[buttonWrapper alloc] init];
+    _bw23 = [[buttonWrapper alloc] init];
+    _bw24 = [[buttonWrapper alloc] init];
+    
+    _bw31 = [[buttonWrapper alloc] init];
+    _bw32 = [[buttonWrapper alloc] init];
+    _bw33 = [[buttonWrapper alloc] init];
+    _bw34 = [[buttonWrapper alloc] init];
+    
+    _bw41 = [[buttonWrapper alloc] init];
+    _bw42 = [[buttonWrapper alloc] init];
+    _bw43 = [[buttonWrapper alloc] init];
+    _bw44 = [[buttonWrapper alloc] init];
+    
+    _bw51 = [[buttonWrapper alloc] init];
+    _bw52 = [[buttonWrapper alloc] init];
+    _bw53 = [[buttonWrapper alloc] init];
+    _bw54 = [[buttonWrapper alloc] init];
+    
+    _bw61 = [[buttonWrapper alloc] init];
+    _bw62 = [[buttonWrapper alloc] init];
+    _bw63 = [[buttonWrapper alloc] init];
+    _bw64 = [[buttonWrapper alloc] init];
+    
+    _bw71 = [[buttonWrapper alloc] init];
+    _bw72 = [[buttonWrapper alloc] init];
+    _bw73 = [[buttonWrapper alloc] init];
+    _bw74 = [[buttonWrapper alloc] init];
+    
+    _bw81 = [[buttonWrapper alloc] init];
+    _bw82 = [[buttonWrapper alloc] init];
+    _bw83 = [[buttonWrapper alloc] init];
+    _bw84 = [[buttonWrapper alloc] init];
+    
+    _board = [[NSMutableDictionary alloc] initWithCapacity:32];
+    
+    [_board setObject:_b11 forKey:@11];
+    [_board setObject:_b12 forKey:@12];
+    [_board setObject:_b13 forKey:@13];
+    [_board setObject:_b14 forKey:@14];
+    [_board setObject:_b21 forKey:@21];
+    [_board setObject:_b22 forKey:@22];
+    [_board setObject:_b23 forKey:@23];
+    [_board setObject:_b24 forKey:@24];
+    [_board setObject:_b31 forKey:@31];
+    [_board setObject:_b32 forKey:@32];
+    [_board setObject:_b33 forKey:@33];
+    [_board setObject:_b34 forKey:@34];
+    [_board setObject:_b41 forKey:@41];
+    [_board setObject:_b42 forKey:@42];
+    [_board setObject:_b43 forKey:@43];
+    [_board setObject:_b44 forKey:@44];
+    [_board setObject:_b51 forKey:@51];
+    [_board setObject:_b52 forKey:@52];
+    [_board setObject:_b53 forKey:@53];
+    [_board setObject:_b54 forKey:@54];
+    [_board setObject:_b61 forKey:@61];
+    [_board setObject:_b62 forKey:@62];
+    [_board setObject:_b63 forKey:@63];
+    [_board setObject:_b64 forKey:@64];
+    [_board setObject:_b71 forKey:@71];
+    [_board setObject:_b72 forKey:@72];
+    [_board setObject:_b73 forKey:@73];
+    [_board setObject:_b74 forKey:@74];
+    [_board setObject:_b81 forKey:@81];
+    [_board setObject:_b82 forKey:@82]; 
+    [_board setObject:_b83 forKey:@83]; 
+    [_board setObject:_b84 forKey:@84];
+    
+    _boardWrapper = [[NSArray alloc] initWithObjects:
+                     _bw11,_bw12,_bw13,_bw14,
                      _bw21,_bw22,_bw23,_bw24,
                      _bw31,_bw32,_bw33,_bw34,
                      _bw41,_bw42,_bw43,_bw44,
@@ -47,22 +113,16 @@
     {
         b.location = row+column;
         if (b.location < 40)
-        {
-            *b.isRed = FALSE;
-            *b.isEmpty = FALSE;
-            *b.isWhite = TRUE;
+        {   //top of board = red pieces
+            [b setIsRed:TRUE];
         }
         else if (b.location > 60)
-        {
-            *b.isRed = FALSE;
-            *b.isEmpty = FALSE;
-            *b.isWhite = TRUE;
+        {   //bottom of board = white pieces
+            [b setIsWhite:TRUE];
         }
         else
-        {
-            *b.isRed = FALSE;
-            *b.isEmpty = TRUE;
-            *b.isWhite = TRUE;
+        {   //middle of board has no pieces
+            [b setIsEmpty:TRUE];
         }
         column++;
         if (column == 5)

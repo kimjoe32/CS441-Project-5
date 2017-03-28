@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "buttonWrapper.h"
 @interface ViewController : UIViewController
-@property (nonatomic, strong) NSArray *board;
+@property (nonatomic, strong) NSMutableDictionary *board;
 @property (nonatomic, strong) NSArray *boardWrapper;
 
 @property (strong, nonatomic) IBOutlet UIButton *b11;

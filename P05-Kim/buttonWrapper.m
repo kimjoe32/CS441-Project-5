@@ -13,9 +13,28 @@
 @synthesize isEmpty;
 @synthesize location;
 
-+ (void) pr
+- (id) init
 {
-    
+    self = [super init];
+    isRed = FALSE;
+    isWhite = FALSE;
+    isEmpty = FALSE;
+    location = 0;
+    return self;
+}
+
+- (void) pr
+{   //debugging print type of button
+    if (isRed)
+    {
+        NSLog(@"RED, %ld", (long)location);
+    }
+    else if (isWhite) {
+        NSLog(@"WHITE, %ld", location);
+    }
+    else {
+        NSLog(@"EMPTY, %ld", location);
+    }
 }
 @end
 
