@@ -20,4 +20,5 @@
 - (void) attack: (buttonWrapper*) attacked landingSpot: (buttonWrapper*) landing;
 - (void) swapValues: (buttonWrapper*) bw2;
 - (BOOL) isDifferent: (buttonWrapper*) bw2;
+- (void) switchToType: (NSString *) type;
 @end

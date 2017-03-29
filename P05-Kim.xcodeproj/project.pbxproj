@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C6C22821E8B6DFC006E3F6E /* redKing.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C6C22801E8B6DFC006E3F6E /* redKing.png */; };
+		6C6C22831E8B6DFC006E3F6E /* whiteKing.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C6C22811E8B6DFC006E3F6E /* whiteKing.png */; };
 		6C91258D1E89BF4C0025D139 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C91258C1E89BF4C0025D139 /* main.m */; };
 		6C9125901E89BF4C0025D139 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C91258F1E89BF4C0025D139 /* AppDelegate.m */; };
 		6C9125931E89BF4C0025D139 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C9125921E89BF4C0025D139 /* ViewController.m */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		6C5500961E89F0E500A21F24 /* buttonWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buttonWrapper.h; sourceTree = "<group>"; };
+		6C6C22801E8B6DFC006E3F6E /* redKing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redKing.png; sourceTree = "<group>"; };
+		6C6C22811E8B6DFC006E3F6E /* whiteKing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteKing.png; sourceTree = "<group>"; };
 		6C9125881E89BF4C0025D139 /* P05-Kim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "P05-Kim.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C91258C1E89BF4C0025D139 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6C91258E1E89BF4C0025D139 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				6CF522E71E89CEB7000E7D94 /* redPiece.png */,
 				6CF522E21E89CB7B000E7D94 /* Checkeboard.png */,
 				6CF522E31E89CB7B000E7D94 /* whitePice.png */,
+				6C6C22801E8B6DFC006E3F6E /* redKing.png */,
+				6C6C22811E8B6DFC006E3F6E /* whiteKing.png */,
 			);
 			name = Pictures;
 			sourceTree = "<group>";
@@ -160,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C91259B1E89BF4C0025D139 /* LaunchScreen.storyboard in Resources */,
+				6C6C22821E8B6DFC006E3F6E /* redKing.png in Resources */,
+				6C6C22831E8B6DFC006E3F6E /* whiteKing.png in Resources */,
 				6CF522E61E89CB7B000E7D94 /* whitePice.png in Resources */,
 				6CF522E81E89CEB7000E7D94 /* redPiece.png in Resources */,
 				6CF522E51E89CB7B000E7D94 /* Checkeboard.png in Resources */,

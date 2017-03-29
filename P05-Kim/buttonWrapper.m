@@ -14,7 +14,7 @@
 @synthesize isKing;
 @synthesize location;
 
-- (id) init: (NSInteger) position;
+- (id) init: (NSInteger) position
 {
     self = [super init];
     isRed = FALSE;
@@ -45,6 +45,11 @@
     temp = isEmpty;
     isEmpty = bw2.isEmpty;
     bw2.isEmpty = temp;
+    
+    //switch king
+    temp = isKing;
+    isKing = bw2.isKing;
+    bw2.isKing = temp;
 }
 
 - (void) attack: (buttonWrapper*) attacked landingSpot: (buttonWrapper*) landing
@@ -56,10 +61,11 @@
     {
         [landing switchToType:@"RED"];
     }
-    else
+    else if (isWhite)
     {
         [landing switchToType:@"WHITE"];
     }
+    landing.isKing = isKing;
     //attacking location is now empty
     [self switchToType:@"EMPTY"];
 }
@@ -83,6 +89,7 @@
         isRed = FALSE;
         isWhite = FALSE;
         isEmpty = TRUE;
+        isKing = FALSE;
     }
 }
 
@@ -90,13 +97,13 @@
 {   //debugging print type of button
     if (isRed)
     {
-        return [NSString stringWithFormat:@"RED, %ld", location];
+        return [NSString stringWithFormat:@"RED, %ld %@", location, (isKing) ? @"King" : @""];
     }
     else if (isWhite) {
-        return [NSString stringWithFormat:@"WHITE, %ld", location];
+        return [NSString stringWithFormat:@"WHITE, %ld %@", location, (isKing) ? @"King" : @""];
     }
     //isEmpty
-    return [NSString stringWithFormat:@"EMPTY, %ld", location];
+    return [NSString stringWithFormat:@"EMPTY, %ld %@", location, (isKing) ? @"King" : @""];
 }
 @end
 
