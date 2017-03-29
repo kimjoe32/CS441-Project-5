@@ -389,14 +389,7 @@ NSInteger lostWhitePieces;
     
     [firstbw attack: secondbw landingSpot: furtherbw];
     [self swapImages:firstButton image2:furtherButton]; //attacker image = empty, landing image = old attacker image
-    [UIView animateWithDuration:.5 //fade away the attacked object
-                     animations:^{
-                         secondButton.alpha=0;
-                     } completion:^(BOOL finished){
-                         if (finished) {
-                             [secondButton setImage:nil forState:UIControlStateNormal];//make attacked image = NULL
-                         }
-                     }];
+    [secondButton setImage:nil forState:UIControlStateNormal];//make attacked image = NULL
     lastClickedLocation = 0;
     [self makeKing:furtherButton bw:furtherbw];
     if (lostRedPieces >= 12)
