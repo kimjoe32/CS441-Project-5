@@ -11,30 +11,92 @@
 @synthesize isRed;
 @synthesize isWhite;
 @synthesize isEmpty;
+@synthesize isKing;
 @synthesize location;
 
-- (id) init
+- (id) init: (NSInteger) position;
 {
     self = [super init];
     isRed = FALSE;
     isWhite = FALSE;
     isEmpty = FALSE;
-    location = 0;
+    isKing = FALSE;
+    location = position;
     return self;
 }
+- (BOOL) isDifferent: (buttonWrapper*) bw2
+{
+    return (isWhite && bw2.isRed) || (isRed && bw2.isWhite);
+}
 
-- (void) pr
+- (void) swapValues: (buttonWrapper*) bw2
+{
+    //switch red
+    BOOL temp = isRed;
+    isRed = bw2.isRed;
+    bw2.isRed = temp;
+    
+    //switch white
+    temp = isWhite;
+    isWhite = bw2.isWhite;
+    bw2.isWhite = temp;
+    
+    //switch empty
+    temp = isEmpty;
+    isEmpty = bw2.isEmpty;
+    bw2.isEmpty = temp;
+}
+
+- (void) attack: (buttonWrapper*) attacked landingSpot: (buttonWrapper*) landing
+{
+    //attacked bw becomes empty
+    [attacked switchToType:@"EMPTY"];
+    //change landingSpot bw to attacker type
+    if (isRed)
+    {
+        [landing switchToType:@"RED"];
+    }
+    else
+    {
+        [landing switchToType:@"WHITE"];
+    }
+    //attacking location is now empty
+    [self switchToType:@"EMPTY"];
+}
+
+- (void) switchToType: (NSString *) type
+{
+    if ([type isEqualToString:@"RED"])
+    {
+        isRed = TRUE;
+        isWhite = FALSE;
+        isEmpty = FALSE;
+    }
+    else if ([type isEqualToString:@"WHITE"])
+    {
+        isRed = FALSE;
+        isWhite = TRUE;
+        isEmpty = FALSE;
+    }
+    else
+    {
+        isRed = FALSE;
+        isWhite = FALSE;
+        isEmpty = TRUE;
+    }
+}
+
+- (NSString*) pr
 {   //debugging print type of button
     if (isRed)
     {
-        NSLog(@"RED, %ld", (long)location);
+        return [NSString stringWithFormat:@"RED, %ld", location];
     }
     else if (isWhite) {
-        NSLog(@"WHITE, %ld", location);
+        return [NSString stringWithFormat:@"WHITE, %ld", location];
     }
-    else {
-        NSLog(@"EMPTY, %ld", location);
-    }
+    //isEmpty
+    return [NSString stringWithFormat:@"EMPTY, %ld", location];
 }
 @end
 

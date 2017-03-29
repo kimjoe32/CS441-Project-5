@@ -13,7 +13,11 @@
 @property (nonatomic) BOOL isRed;
 @property (nonatomic) BOOL isWhite;
 @property (nonatomic) BOOL isEmpty;
+@property (nonatomic) BOOL isKing;
 @property (nonatomic) NSInteger location;
-- (void) pr;
-- (id) init;
+- (NSString*) pr;
+- (id) init: (NSInteger) position;
+- (void) attack: (buttonWrapper*) attacked landingSpot: (buttonWrapper*) landing;
+- (void) swapValues: (buttonWrapper*) bw2;
+- (BOOL) isDifferent: (buttonWrapper*) bw2;
 @end
