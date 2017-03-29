@@ -13,6 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -21,10 +22,43 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="224" affinity="minX"/>
+                        </userGuides>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkeboard.png" translatesAutoresizingMaskIntoConstraints="NO" id="iYZ-EK-3cW">
                                 <rect key="frame" x="20" y="181" width="374" height="374"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redTurn.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q86-n9-jme" userLabel="redTurnSign">
+                                <rect key="frame" x="56.377205070502214" y="101" width="300" height="69.999999999999986"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whiteTurn.png" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-6m-9Ub" userLabel="whiteTurnSign">
+                                <rect key="frame" x="56" y="565" width="300" height="69.999999999999986"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whiteScore.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xvc-Ws-M58" userLabel="whiteScore">
+                                <rect key="frame" x="14" y="645" width="192" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redScore.png" translatesAutoresizingMaskIntoConstraints="NO" id="eE9-h3-GrL">
+                                <rect key="frame" x="208" y="645" width="192" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da2-jI-PwQ">
+                                <rect key="frame" x="100" y="656" width="100" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUE-l9-TgE">
+                                <rect key="frame" x="294" y="656" width="100" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -32,13 +66,22 @@
                             <constraint firstItem="iYZ-EK-3cW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QDx-9C-Cfj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lostRedLabel" destination="IUE-l9-TgE" id="Awo-a5-A0p"/>
+                        <outlet property="lostWhiteLabel" destination="da2-jI-PwQ" id="5cL-eF-bu6"/>
+                        <outlet property="redTurnSign" destination="Q86-n9-jme" id="1Xh-qm-eih"/>
+                        <outlet property="whiteTurnSign" destination="ox0-6m-9Ub" id="CG1-dj-aee"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="138.58695652173915"/>
         </scene>
     </scenes>
     <resources>
         <image name="Checkeboard.png" width="374" height="374"/>
+        <image name="redScore.png" width="192" height="71"/>
+        <image name="redTurn.png" width="300" height="70"/>
+        <image name="whiteScore.png" width="192" height="71"/>
+        <image name="whiteTurn.png" width="300" height="70"/>
     </resources>
 </document>
