@@ -195,7 +195,6 @@ NSInteger lostWhitePieces;
             )
         {
             lastClickedLocation = [sender tag];
-            //NSLog(@"1st button  %@", [bw pr]);
         }
     }
     else
@@ -207,7 +206,6 @@ NSInteger lostWhitePieces;
         buttonWrapper * secondbw = [_boardWrapper objectForKey:secondButtonNum];
         UIButton * firstButton = [_board objectForKey:firstButtonNum];;
         UIButton * secondButton = [_board objectForKey:secondButtonNum];;
-        //NSLog(@"2nd button  %@", [secondbw pr]);
         
         //clicked button that's not next to last clicked button
         if (labs(lastClickedLocation - [sender tag]) != 9 && labs(lastClickedLocation - [sender tag]) != 11)
@@ -215,10 +213,8 @@ NSInteger lostWhitePieces;
             if (![firstbw isDifferent:secondbw] && !secondbw.isEmpty)
             {   //if both buttons are the same type, make second button the new first button
                 lastClickedLocation = [sender tag];
-                //NSLog(@"out of range button. new first button is  %@", [secondbw pr]);
                 return;
             }
-            //NSLog(@"2nd button out of range");
         }
         else
         {   //clicked second button thats next to first button
@@ -227,7 +223,6 @@ NSInteger lostWhitePieces;
             buttonWrapper * furtherbw;
             if (distance == 11 && (firstbw.isWhite || firstbw.isKing)) //above left
             {
-                //NSLog(@"above left");
                 if ([firstbw isDifferent:secondbw])
                 {   //both are different colors - see if second button can be attacked
                     furtherButtonNum = [NSNumber numberWithInteger:lastClickedLocation - 22];
@@ -242,7 +237,6 @@ NSInteger lostWhitePieces;
                 }
                 else if (secondbw.isEmpty)
                 {   //clicked empty button
-                    //NSLog(@"empty button");
                     [self moveToEmptySpace:firstButton btn1bw:firstbw btn2:secondButton btn2bw:secondbw];
                 }
                 else
@@ -252,7 +246,6 @@ NSInteger lostWhitePieces;
             }
             else if (distance == 9 && (firstbw.isWhite || firstbw.isKing)) //above right
             {
-                //NSLog(@"above right");
                 if ([firstbw isDifferent:secondbw])
                 {   //both are different colors - see if second button can be attacked
                     furtherButtonNum = [NSNumber numberWithInteger:lastClickedLocation - 18];
@@ -267,12 +260,6 @@ NSInteger lostWhitePieces;
                 }
                 else if (secondbw.isEmpty)
                 {   //clicked empty button
-                    //NSLog(@"empty button");
-                    [self moveToEmptySpace:firstButton btn1bw:firstbw btn2:secondButton btn2bw:secondbw];
-                }
-                else if (secondbw.isEmpty)
-                {   //clicked empty button
-                    //NSLog(@"empty button");
                     [self moveToEmptySpace:firstButton btn1bw:firstbw btn2:secondButton btn2bw:secondbw];
                 }
                 else
@@ -282,7 +269,6 @@ NSInteger lostWhitePieces;
             }
             else if (distance == -9 && (firstbw.isRed || firstbw.isKing)) //below left
             {
-                //NSLog(@"below left");
                 if ([firstbw isDifferent:secondbw])
                 {   //both are different colors - see if second button can be attacked
                     furtherButtonNum = [NSNumber numberWithInteger:lastClickedLocation + 18];
@@ -297,7 +283,6 @@ NSInteger lostWhitePieces;
                 }
                 else if (secondbw.isEmpty)
                 {   //clicked empty button
-                    //NSLog(@"empty button");
                     [self moveToEmptySpace:firstButton btn1bw:firstbw btn2:secondButton btn2bw:secondbw];
                 }
                 else
@@ -307,7 +292,6 @@ NSInteger lostWhitePieces;
             }
             else if (distance == -11 && (firstbw.isRed || firstbw.isKing)) //below right
             {
-                //NSLog(@"below right");
                 if ([firstbw isDifferent:secondbw])
                 {   //both are different colors - see if second button can be attacked
                     furtherButtonNum = [NSNumber numberWithInteger:lastClickedLocation + 22];
@@ -322,7 +306,6 @@ NSInteger lostWhitePieces;
                 }
                 else if (secondbw.isEmpty)
                 {   //clicked empty button
-                    //NSLog(@"empty button");
                     [self moveToEmptySpace:firstButton btn1bw:firstbw btn2:secondButton btn2bw:secondbw];
                 }
                 else
@@ -348,11 +331,9 @@ NSInteger lostWhitePieces;
 
 - (void) makeKing:(UIButton*) btn bw:(buttonWrapper*) bw
 {   //check to make king
-    ////NSLog(@"isRed: %@, isWhite: %@, location: %ld", bw.isRed ? @"YES" : @"NO", bw.isWhite ? @"YES" : @"NO", bw.location);
     if (((bw.isRed && bw.location > 80) || (bw.isWhite && bw.location < 20)) && !bw.isKing)
     {
         bw.isKing = TRUE;
-        //NSLog(@"ISKING");
         UIImage * img;
         if (bw.isRed)
         {
@@ -385,8 +366,7 @@ NSInteger lostWhitePieces;
         lostWhitePieces++;
         [_lostWhiteLabel setText:[NSString stringWithFormat:@"%ld", lostWhitePieces]];
     }
-    //NSLog(@"%@ is attacking %@ and landing on %@", [firstbw pr], [secondbw pr], [furtherbw pr]);
-    
+
     [firstbw attack: secondbw landingSpot: furtherbw];
     [self swapImages:firstButton image2:furtherButton]; //attacker image = empty, landing image = old attacker image
     [secondButton setImage:nil forState:UIControlStateNormal];//make attacked image = NULL
@@ -444,5 +424,25 @@ NSInteger lostWhitePieces;
     [super didReceiveMemoryWarning];
 }
 
+-(IBAction)restart:(id)sender
+{
+    //remove old buttons
+    for (id k in _board)
+    {
+        UIButton * btn = [_board objectForKey:k];
+        [btn removeFromSuperview];
+        btn = nil;
+    }
+    [self createButtons];
+    playerTurn = @"RED"; //nextPlayerTurn switches back to white
+    [self nextPlayerTurn];
+    [_whiteTurnSign setImage:[UIImage imageNamed:@"whiteTurn.png"]];
+    [_redTurnSign setImage:[UIImage imageNamed:@"redTurn.png"]];
+    lastClickedLocation = 0;
+    lostRedPieces = 0;
+    [_lostRedLabel setText:[NSString stringWithFormat:@"%ld", lostRedPieces]];
+    lostWhitePieces = 0;
+    [_lostWhiteLabel setText:[NSString stringWithFormat:@"%ld", lostWhitePieces]];
+}
 
 @end

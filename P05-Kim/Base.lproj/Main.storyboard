@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +14,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -29,41 +29,59 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checkeboard.png" translatesAutoresizingMaskIntoConstraints="NO" id="iYZ-EK-3cW">
                                 <rect key="frame" x="20" y="181" width="374" height="374"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redTurn.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q86-n9-jme" userLabel="redTurnSign">
-                                <rect key="frame" x="56.377205070502214" y="101" width="300" height="69.999999999999986"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redTurn.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q86-n9-jme" userLabel="redTurnSign">
+                                <rect key="frame" x="56" y="101" width="300" height="70"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whiteTurn.png" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-6m-9Ub" userLabel="whiteTurnSign">
-                                <rect key="frame" x="56" y="565" width="300" height="69.999999999999986"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteTurn.png" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-6m-9Ub" userLabel="whiteTurnSign">
+                                <rect key="frame" x="56" y="565" width="300" height="70"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whiteScore.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xvc-Ws-M58" userLabel="whiteScore">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteScore.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xvc-Ws-M58" userLabel="whiteScore">
                                 <rect key="frame" x="14" y="645" width="192" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="redScore.png" translatesAutoresizingMaskIntoConstraints="NO" id="eE9-h3-GrL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redScore.png" translatesAutoresizingMaskIntoConstraints="NO" id="eE9-h3-GrL">
                                 <rect key="frame" x="208" y="645" width="192" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da2-jI-PwQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da2-jI-PwQ">
                                 <rect key="frame" x="100" y="656" width="100" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUE-l9-TgE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUE-l9-TgE">
                                 <rect key="frame" x="294" y="656" width="100" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIj-qH-lHO">
+                                <rect key="frame" x="56" y="28" width="300" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Restart.png"/>
+                                <connections>
+                                    <action selector="restart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cAM-FD-ahA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iYZ-EK-3cW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Pyu-P4-pY1"/>
-                            <constraint firstItem="iYZ-EK-3cW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QDx-9C-Cfj"/>
+                            <constraint firstItem="da2-jI-PwQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="0hU-XV-Rp5"/>
+                            <constraint firstItem="iYZ-EK-3cW" firstAttribute="top" secondItem="Q86-n9-jme" secondAttribute="bottom" constant="10" id="168-02-YdY"/>
+                            <constraint firstItem="Xvc-Ws-M58" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-6" id="1lC-91-RR4"/>
+                            <constraint firstItem="eE9-h3-GrL" firstAttribute="leading" secondItem="Xvc-Ws-M58" secondAttribute="trailing" constant="2" id="28A-Jx-elE"/>
+                            <constraint firstItem="da2-jI-PwQ" firstAttribute="firstBaseline" secondItem="IUE-l9-TgE" secondAttribute="firstBaseline" id="2R1-Yl-hVY"/>
+                            <constraint firstItem="iYZ-EK-3cW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="EEj-k9-g7S"/>
+                            <constraint firstItem="da2-jI-PwQ" firstAttribute="top" secondItem="ox0-6m-9Ub" secondAttribute="bottom" constant="21" id="FoQ-9B-VZg"/>
+                            <constraint firstItem="iYZ-EK-3cW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IUe-OY-x3Q"/>
+                            <constraint firstItem="eE9-h3-GrL" firstAttribute="leading" secondItem="da2-jI-PwQ" secondAttribute="trailing" constant="8" symbolic="YES" id="LG1-0C-jPa"/>
+                            <constraint firstItem="Xvc-Ws-M58" firstAttribute="centerY" secondItem="da2-jI-PwQ" secondAttribute="centerY" id="Nbs-fk-igm"/>
+                            <constraint firstItem="Xvc-Ws-M58" firstAttribute="top" secondItem="eE9-h3-GrL" secondAttribute="top" id="OlI-5O-aty"/>
+                            <constraint firstItem="Q86-n9-jme" firstAttribute="leading" secondItem="ox0-6m-9Ub" secondAttribute="leading" id="W6Q-4N-iMN"/>
+                            <constraint firstItem="iYZ-EK-3cW" firstAttribute="trailing" secondItem="IUE-l9-TgE" secondAttribute="trailing" id="dy8-IK-TsD"/>
+                            <constraint firstItem="da2-jI-PwQ" firstAttribute="baseline" secondItem="IUE-l9-TgE" secondAttribute="baseline" id="eYk-qF-2ng"/>
+                            <constraint firstItem="Q86-n9-jme" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="36" id="n6v-ci-me7"/>
+                            <constraint firstItem="IUE-l9-TgE" firstAttribute="leading" secondItem="Xvc-Ws-M58" secondAttribute="trailing" constant="88" id="qmk-V8-k7D"/>
+                            <constraint firstItem="Xvc-Ws-M58" firstAttribute="top" secondItem="ox0-6m-9Ub" secondAttribute="bottom" constant="10" id="v6j-9B-Oyq"/>
+                            <constraint firstAttribute="bottom" secondItem="Xvc-Ws-M58" secondAttribute="bottom" constant="20" symbolic="YES" id="wzf-kP-jWs"/>
                         </constraints>
                     </view>
                     <connections>
@@ -73,12 +91,14 @@
                         <outlet property="whiteTurnSign" destination="ox0-6m-9Ub" id="CG1-dj-aee"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="138.58695652173915"/>
         </scene>
     </scenes>
     <resources>
         <image name="Checkeboard.png" width="374" height="374"/>
+        <image name="Restart.png" width="300" height="65"/>
         <image name="redScore.png" width="192" height="71"/>
         <image name="redTurn.png" width="300" height="70"/>
         <image name="whiteScore.png" width="192" height="71"/>

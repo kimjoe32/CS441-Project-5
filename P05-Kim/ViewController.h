@@ -12,6 +12,7 @@
 @property (nonatomic, strong) NSMutableDictionary *board;
 @property (nonatomic, strong) NSMutableDictionary *boardWrapper;
 -(IBAction)clicked:(id)sender;
+-(IBAction)restart:(id)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *redTurnSign;
 @property (strong, nonatomic) IBOutlet UIImageView *whiteTurnSign;
 @property (strong, nonatomic) IBOutlet UILabel *lostRedLabel;
